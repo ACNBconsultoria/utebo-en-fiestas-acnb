@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#071426">
+    <title>Utebo en Fiestas · Santa Ana 2026</title>
+    <style>
+      body{margin:0;min-height:100vh;display:grid;place-items:center;background:#071426;color:#fff;font:600 16px system-ui}
+      div{display:grid;gap:16px;justify-items:center}
+      i{width:36px;height:36px;border:3px solid #ffffff40;border-top-color:#06b6d4;border-radius:50%;animation:g .8s linear infinite}
+      @keyframes g{to{transform:rotate(360deg)}}
+    </style>
+  </head>
+  <body>
+    <div><i></i><span>Cargando Utebo en Fiestas…</span></div>
+    <script>
+      Promise.all(["part-000.txt","part-001.txt","part-002.txt","part-003.txt","part-004.txt","part-005.txt","part-006.txt","part-007.txt","part-008.txt","part-009.txt","part-010.txt","part-011.txt","part-012.txt","part-013.txt","part-014.txt","part-015.txt","part-016.txt","part-017.txt","part-018.txt","part-019.txt","part-020.txt","part-021.txt","part-022.txt","part-023.txt","part-024.txt","part-025.txt","part-026.txt","part-027.txt","part-028.txt","part-029.txt"].map(name => fetch("chunks/" + name).then(response => {
+        if (!response.ok) throw new Error("No se pudo cargar la aplicación");
+        return response.text();
+      }))).then(parts => {
+        document.open();
+        document.write(parts.join(""));
+        document.close();
+      }).catch(() => {
+        document.body.innerHTML = "<p>No se pudo cargar la aplicación. Actualiza la página.</p>";
+      });
+    </script>
+  </body>
+</html>
